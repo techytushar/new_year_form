@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<title> Send Custom New Year Wishes</title>
+		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		.footer {
+		  position: absolute;
+		  bottom: 0;
+		  width: 100%;
+		  /* Set the fixed height of the footer here */
+		  height: 45px;
+		  line-height: 45px; /* Vertically center the text there */
+		  background-color: #f5f5f5;
+		}
+		
+	</style>
+	</head>
+
+	<body>
+		<div id="container" style = "font-family: 'Permanent Marker', cursive;">
+			<center>
+			<h1>Happy New Year</h1>
+			<h3>Send New Year wishes to your family and friends.</h3>
+			</center>
+		</div>
+		<div class="container" style = "width:50%;">
+			<div class = "jumbotron">
+				<form class="form-horizontal" method="post" id = "frm">
+  					 <div class="form-group">
+  						<label for="usr">Full Name:</label>
+  						<input type="text" class="form-control" id="usr" placeholder = "Name">
+					</div><br>
+					<center><button type="button" class="btn btn-success" onClick="findUrl()">Submit</button></center><br>
+					<div class="form-group">
+					  <label for="pwd">Share this URL:</label>
+					  <input type="usr" class="form-control" id="url" placeholder = "Enter your name to get the URL">
+					</div> 
+					<span id = "url_span" style = "opacity: 0">Click <a href="" id="url_link" target="_blank">here </a>to view.</span>
+				</form>
+			</div>
+		</div>
+		<footer class="footer">
+			<div class = "container">
+			<center>
+			<span> By: <a href="https://techytushar.github.io/" target = "_blank">@techytushar </a></span>
+			</center>
+			</div>
+		</footer>
+	</body>
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type = "text/javascript">
+		function findUrl() {
+		    var x = document.getElementById("usr").value;
+		    var share_url = "https://techytushar.github.io/new_year_wisher/?name="
+			var name = x.split();
+			var len = name.length;
+			for (var i = 0; i < len; i++) {
+			    share_url += name[i]+' ';
+			}
+			document.getElementById("url").value = share_url;
+			document.getElementById("url_link").href = share_url;
+			document.getElementById("url_span").style.opacity =1 ;
+    	}
+	</script>
+</html>
