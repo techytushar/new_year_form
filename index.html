@@ -42,8 +42,8 @@
 					  <label for="pwd">Share this URL:</label>
 					  <input type="usr" class="form-control" id="url" placeholder = "Enter your name to get the URL" value= " ">
 					</div> 
-					<center>
-						<span id = "url_span" style = "opacity: 0">Click <a href="" id="url_link" target="_blank">here </a>to view.</span><br>	
+					<center><b>
+						<span id = "url_span" style = "opacity: 0 font-size:18px;">Click <a href="" id="url_link" target="_blank">here </a>to view.</span></b><br><br>
 						<span style="font-size: 25px;"><b>Share:</b></span>&nbsp;
 						<a href = "#" target = "_blank" id = "whatsapp_url" data-action="share/whatsapp/share"><i class = "fa fa-whatsapp" style="font-size:32px; color:green;"></i></a>
 					</center>
@@ -60,6 +60,10 @@
 	</body>
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type = "text/javascript">
+		window.onload = function() {
+			document.getElementById("usr").value = ""
+			document.getElementById("url").value = ""
+		};
 		function findUrl() {
 		    var x = document.getElementById("usr").value;
 		    if(x.length!=0){
@@ -73,7 +77,7 @@
 			document.getElementById("url").value = share_url;
 			document.getElementById("url_link").href = share_url;
 			document.getElementById("url_span").style.opacity =1 ;
-			document.getElementById("whatsapp_url").href="whatsapp://send?text=The text to share!";
+			document.getElementById("whatsapp_url").href="whatsapp://send?text="+share_url;
 		}
 		else{
 			document.getElementById("jumbo").className = document.getElementById("jumbo").className + " error"; 
