@@ -71,16 +71,16 @@
 		    var share_url = "https://techytushar.github.io/new_year_wisher/?name=";
 			var name = x.split(" ");
 			var len = name.length;
-			console.log(name);
-			for (var i = 0; i < len; i++) {
-			    console.log(i);
-			    share_url += name[i]+"%20";
+			var name_add = ""
+			for (var i = 0; i < len; i++) { 
+			    share_url += name[i]+"_";
+			    name_add += name[i].charAt(0).toUpperCase() + name[i].substr(1).toLowerCase()+ ' ';
 			}
-			share_url = share_url.slice(0, -3);
+			share_url = share_url.slice(0, -1);
 			document.getElementById("url").value = share_url;
 			document.getElementById("url_link").href = share_url;
 			document.getElementById("url_span").style.opacity =1 ;
-			document.getElementById("whatsapp_url").href="whatsapp://send?text="+share_url;
+			document.getElementById("whatsapp_url").href="whatsapp://send?text="+share_url+"  New Year Wishes from "+name_add;
 		}
 		else{
 			document.getElementById("jumbo").className = document.getElementById("jumbo").className + " error"; 
