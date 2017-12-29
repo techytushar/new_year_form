@@ -61,19 +61,22 @@
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type = "text/javascript">
 		window.onload = function() {
-			document.getElementById("usr").value = ""
-			document.getElementById("url").value = ""
-		};
+			document.getElementById("usr").value = "";
+			document.getElementById("url").value = "";
+		}
 		function findUrl() {
 		    var x = document.getElementById("usr").value;
 		    if(x.length!=0){
 		    document.getElementById("jumbo").className = document.getElementById("jumbo").className.replace("error", " ");
-		    var share_url = "https://techytushar.github.io/new_year_wisher/?name="
-			var name = x.split();
+		    var share_url = "https://techytushar.github.io/new_year_wisher/?name=";
+			var name = x.split(" ");
 			var len = name.length;
+			console.log(name);
 			for (var i = 0; i < len; i++) {
-			    share_url += name[i]+' ';
+			    console.log(i);
+			    share_url += name[i]+"%20";
 			}
+			share_url = share_url.slice(0, -3);
 			document.getElementById("url").value = share_url;
 			document.getElementById("url_link").href = share_url;
 			document.getElementById("url_span").style.opacity =1 ;
